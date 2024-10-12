@@ -6,8 +6,7 @@ const changeAvaliability = async (req, res) => {
     const { docId } = req.body;
     const docData = await doctorModel.findById(docId);
     await doctorModel.findByIdAndUpdate(docId, {
-      avaliabile: !docData.avaliabile,
-    });
+      avaliabile: !docData.avaliabile});
     res.json({ success: true, message: "Avaliablity changed successfully" });
   } catch (error) {
     console.log(error);
@@ -19,12 +18,10 @@ const changeAvaliability = async (req, res) => {
 const doctorList = async (req, res) => {
   try {
     const doctors = await doctorModel.find({}).select(["-password", "-email"]);
-
-    res.json({ success: true, message: "Doctor List", doctors });
+    res.json({ success: true, doctors });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
-
-export { changeAvaliability, doctorList };
+ export { changeAvaliability  , doctorList};

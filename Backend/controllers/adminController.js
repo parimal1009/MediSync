@@ -1,4 +1,3 @@
-//creating api to add doctor in database
 import validator from "validator";
 import bcrypt from "bcrypt";
 import { v2 as cloudinary } from "cloudinary";
@@ -11,22 +10,23 @@ const addDoctor = async (req, res) => {
       name,
       email,
       password,
-      speciallity,
+      speciality,
       degree,
       experience,
       about,
       fees,
-      address,
+      address
     } = req.body;
+
     const imageFile = req.file;
 
     //checking for al data to add doctor
 
     if (
-      name ||
+      !name ||
       !email ||
       !password ||
-      !speciallity ||
+      !speciality ||
       !degree ||
       !experience ||
       !about ||
@@ -35,6 +35,7 @@ const addDoctor = async (req, res) => {
     ) {
       return res.json({ success: false, message: "Missing Details" });
     }
+
     //validating email format
     if (!validator.isEmail(email)) {
       res.json({ success: false, message: "Please enter a valid email" });
@@ -50,7 +51,7 @@ const addDoctor = async (req, res) => {
 
     //upload image to cloudinary
     const imageUpload = await cloudinary.uploader.upload(imageFile.path, {
-      resource_type: "image",
+      resource_type: "image"
     });
     const imageUrl = imageUpload.secure_url;
 
@@ -59,8 +60,9 @@ const addDoctor = async (req, res) => {
       email,
       image: imageUrl,
       password: hashedPassword,
-      speciallity,
+      speciality,
       degree,
+      experience,
       about,
       fees,
       address: JSON.parse(address),
@@ -69,11 +71,10 @@ const addDoctor = async (req, res) => {
 
     const newDoctor = await doctorModel(doctorData);
     await newDoctor.save();
-
     res.json({ success: true, message: "Doctor added successfully" });
   } catch (error) {
-    console.log(error);
-    res.json({ success: false, message: error.message });
+    console.error("Error adding doctor:", error);
+    return res.json({ success: false, message: error.message  });
   }
 };
 
@@ -98,11 +99,11 @@ const loginAdmin = async (req, res) =>{
 const allDoctors = async (req, res) =>{
   try{
     const doctors = await doctorModel.find({}).select('-password') //remove password
-    res.json({success:true,message:"Doctor List",doctors})
+    res.json({success:true,doctors})
   }catch(error){
     console.log(error);
     res.json({ success: false, message: error.message });
   }
 }
 
-export { addDoctor , loginAdmin,allDoctors};
+export { addDoctor , loginAdmin,allDoctors };
