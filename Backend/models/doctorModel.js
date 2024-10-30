@@ -12,13 +12,13 @@ const doctorSchema = new mongoose.Schema(
     degree: { type: String, required: true },
     experience: { type: String, required: true },
     about: { type: String, required: true },
-    avaliable: { type: Boolean, required: true },
+    avaliable: { type: Boolean , default:true},
     fees: { type: Number, required: true },
     address: { type: Object, required: true },
     data: { type: Number, required: true },
     slots_booked: { type: Object, default: {} },
   },
-  { minimize: false },
+  { minimize: false }
 ); // to store any object in empty data we add
 
 const doctorModel =
