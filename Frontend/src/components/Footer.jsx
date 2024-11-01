@@ -8,7 +8,12 @@ const Footer = () => {
 
         {/* ---------- Left Section ---------- */}
         <div>
-          <img className="mb-5 w-40" src={assets.logo} alt="" />
+          <div className="flex items-center">
+            <img className="mb-5 w-20" src={assets.logo} alt="Company Logo" />
+            <p className="ml-2 text-lg font-semibold">MediSync</p>
+          </div>  
+
+
           <p className="w-full md:w-2/3 text-gray-600 leading-6">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
           </p>
@@ -18,10 +23,10 @@ const Footer = () => {
         <div>
           <p className="text-xl font-medium mb-5">COMPANY</p>
           <ul className="flex flex-col gap-2 text-gray-600">
-            <li>Home</li>
-            <li>About us</li>
-            <li>Contact us</li>
-            <li>Privacy policy</li>
+            <li><a href="/" className="hover:underline">Home</a></li>
+            <li><a href="/about" className="hover:underline">About us</a></li>
+            <li><a href="/contact" className="hover:underline">Contact us</a></li>
+            <li><a href="/privacy" className="hover:underline">Privacy policy</a></li>
           </ul>
         </div>
 
@@ -39,9 +44,8 @@ const Footer = () => {
       {/* ---------- Copyright Text ---------- */}
       <div>
         <hr />
-        <p className="py-5 text-sm text-center">Copyright © 2024 - All Right Reserved.</p>
+        <p className="py-5 text-sm text-center">Copyright © 2024 - All Rights Reserved.</p>
       </div>
-
     </div>
   );
 }
