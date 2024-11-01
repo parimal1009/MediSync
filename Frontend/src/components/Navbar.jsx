@@ -17,7 +17,7 @@ const Navbar = () => {
           alt=""
           style={{ width: "50px", height: "50px" }}
         />
-        <span className="ml-2 text-xl font-bold">MediSync</span>
+        <span onClick={()=>navigate('/')} className="ml-2 text-xl font-bold select-none">MediSync</span>
       </div>
       <ul className="hidden md:flex items-start gap-5 font-medium">
         <NavLink to="/">
