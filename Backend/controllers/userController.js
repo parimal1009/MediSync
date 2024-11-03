@@ -136,15 +136,15 @@ const bookAppointment = async (req,res) =>{
         const {userId, docId , slotDate , slotTime} = req.body
         const docData = await doctorModel.findById(docId).select('-password')
         if(!docData.available){
-            return res.json({success:false,message:"Doctor not avaliable"})
+            return res.json({success:false,message:"Doctor not available"})
         }
 
         let slots_booked = docData.slots_booked
 
-        // checking for slot avaliablity
+        // checking for slot availability
         if(slots_booked[slotDate]){
             if(slots_booked[slotDate].includes(slotTime)){
-                return res.json({success:false,message:"Slot not avaliable"})
+                return res.json({success:false,message:"Slot not available"})
             }else{
                 slots_booked[slotDate].push(slotTime)
             }
