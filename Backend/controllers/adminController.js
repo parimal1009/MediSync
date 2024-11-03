@@ -40,11 +40,11 @@ const addDoctor = async (req, res) => {
 
     //validating email format
     if (!validator.isEmail(email)) {
-      res.json({ success: false, message: "Please enter a valid email" });
+      return res.json({ success: false, message: "Please enter a valid email" });
     }
     //validating password length
     if (password.length < 8) {
-      res.json({ success: false, message: "Please enter a strong password" });
+      return res.json({ success: false, message: "Please enter a strong password" });
     }
 
     //hashing doctor password
