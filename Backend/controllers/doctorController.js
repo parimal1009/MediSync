@@ -1,17 +1,17 @@
-//creating login for update avaliablity of doctor
+//creating login for update availability of doctor
 import doctorModel from "../models/doctorModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import appointmentModel from "../models/appointmentModel.js";
 
-const changeAvaliability = async (req, res) => {
+const changeAvailability = async (req, res) => {
   try {
     const { docId } = req.body;
     const docData = await doctorModel.findById(docId);
     await doctorModel.findByIdAndUpdate(docId, {
-      avaliabile: !docData.avaliabile,
+      available: !docData.available,
     });
-    res.json({ success: true, message: "Avaliablity changed successfully" });
+    res.json({ success: true, message: "Availability changed successfully" });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
@@ -145,8 +145,8 @@ const doctorProfile = async (req, res) => {
 //api to update doctor profile data from doctor panel
 const updateDoctorProfile = async (req, res) => {
   try {
-    const { docId, fees, address, avaliabile } = req.body;
-    await doctorModel.findByIdAndUpdate(docId, { fees, address, avaliabile });
+    const { docId, fees, address, available } = req.body;
+    await doctorModel.findByIdAndUpdate(docId, { fees, address, available });
 
     res.json({ success: true, message: "profile updated" });
   } catch (error) {
@@ -156,7 +156,7 @@ const updateDoctorProfile = async (req, res) => {
 };
 
 export {
-  changeAvaliability,
+  changeAvailability,
   doctorList,
   loginDoctor,
   appointmentsDoctor,
