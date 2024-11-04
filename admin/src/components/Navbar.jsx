@@ -24,7 +24,7 @@ const Navbar = () => {
           alt=""
           style={{ width: "50px", height: "50px" }}
         />
-        <span onClick={()=>navigate('/')} className="ml-2 text-xl font-bold select-none">MediSync</span>
+        <span onClick={()=>navigate('/admin-dashboard')} className="ml-2 text-xl font-bold select-none">MediSync</span>
             <p className='border px-2.5 py-0.5 rounded-full border-gray-500 text-gray-600'>{aToken ? 'Admin' : 'Doctor'}</p>
         </div>
         <button onClick={logout} className='bg-primary text-white text-sm px-10 py-2 rounded-full'>Logout</button>
