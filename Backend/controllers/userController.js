@@ -165,7 +165,7 @@ const bookAppointment = async (req,res) =>{
             amount:docData.fees,
             slotTime,
             slotDate,
-            data:DataTransfer.now()
+            data:Date.now()
         }
 
         const newAppointment = new appointmentModel(appointmentData)
