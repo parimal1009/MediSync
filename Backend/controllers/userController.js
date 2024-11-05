@@ -101,7 +101,7 @@ const getProfile = async (req, res) => {
 const updateProfile = async (req, res) => {
   try {
     const { userId, name, phone, address, dob, gender } = req.body;
-    const imageFile = req.imageFile;
+    const imageFile = req.file;
 
     if (!name || !phone || !dob || !gender) {
       return res.json({ success: false, message: "Data Missing" });
@@ -165,7 +165,7 @@ const bookAppointment = async (req,res) =>{
             amount:docData.fees,
             slotTime,
             slotDate,
-            data:DataTransfer.now()
+            data:Date.now()
         }
 
         const newAppointment = new appointmentModel(appointmentData)
@@ -212,7 +212,7 @@ const cancelAppointment = async(req,res) => {
 
         //releasing doctor slot
 
-        const {docId , slotDate , slotTime} = appointmentDatal
+        const {docId , slotDate , slotTime} = appointmentData
 
         const doctorData = await doctorModel.findById(docId)
 
