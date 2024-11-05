@@ -212,7 +212,7 @@ const cancelAppointment = async(req,res) => {
 
         //releasing doctor slot
 
-        const {docId , slotDate , slotTime} = appointmentDatal
+        const {docId , slotDate , slotTime} = appointmentData
 
         const doctorData = await doctorModel.findById(docId)
 
