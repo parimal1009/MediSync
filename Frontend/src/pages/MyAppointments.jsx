@@ -49,6 +49,7 @@ const MyAppointments = () => {
     }
   }
 
+  //Appointment cancellation feature
   const cancelAppointment = async (appointmentId) => {
     try {
       const {data} = await axios.post(backendUrl+'/api/user/cancel-appointment', {appointmentId}, {headers: {token}})
