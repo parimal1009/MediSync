@@ -14,7 +14,10 @@ connectCloudinary();
 
 // Middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "*", 
+  credentials: true 
+}));
 
 // API Endpoints
 app.use("/api/admin", adminRouter);
