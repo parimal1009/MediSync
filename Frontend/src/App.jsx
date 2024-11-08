@@ -11,15 +11,16 @@ import Appointment from "./pages/Appointment";
 import WaitingList from "./pages/WaitingListPage"; // Import the WaitingList page
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import PaymentPage from "./pages/PaymentPage";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import PaymentPage from "./pages/PaymentPage"; 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
   return (
     <div className="mx-4 sm:mx-[10%]">
       <ToastContainer />
       <Navbar />
+      <HealthcareBot />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/doctors" element={<Doctors />} />
