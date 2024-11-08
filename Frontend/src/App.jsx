@@ -20,7 +20,6 @@ export default function App() {
     <div className="mx-4 sm:mx-[10%]">
       <ToastContainer />
       <Navbar />
-      <HealthcareBot />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/doctors" element={<Doctors />} />

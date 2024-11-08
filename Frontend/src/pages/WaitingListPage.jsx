@@ -7,13 +7,15 @@ const WaitingList = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);  // Add error state to handle errors
-  const { token } = useContext(AppContext);
+  const { backendUrl, token } = useContext(AppContext);
 
   useEffect(() => {
     // Fetch waiting list data from backend
     const fetchAppointments = async () => {
       try {
-        const {data} = await axios.get("http://localhost:3000/api/user/appointments",{headers:{token}}); // Adjust the URL if needed
+        const { data } = await axios.get(
+          backendUrl + "/api/user/appointments", 
+          { headers: { token } }) // Adjust the URL if needed
         if (data.success) {
           setAppointments(data.appointments);
         } else {
