@@ -183,12 +183,13 @@ const bookAppointment = async (req,res) =>{
     }
 }
 
-//api to get user appointment for frontend
+//api to get all appointment for frontend
 const listAppointment = async(req,res) =>{ 
     try{
-
+        // This is changed to print whole lists of appointments booked
+        // const appointments = await appointmentModel.find({userId})
         const {userId} = req.body;
-        const appointments = await appointmentModel.find({userId}) //find appointment for particular user
+        const appointments = await appointmentModel.find() //find appointment for particular user
         res.json({success:true,appointments})
 
     }catch(error){
@@ -196,6 +197,7 @@ const listAppointment = async(req,res) =>{
         res.json({ success: false, message: error.message });
     }
 }
+
 
 //api to cancel appointment
 const cancelAppointment = async(req,res) => {
@@ -231,4 +233,4 @@ const cancelAppointment = async(req,res) => {
 }
 
 
-export { registerUser, loginUser, getProfile , updateProfile , bookAppointment  , listAppointment, cancelAppointment};
+export { registerUser, loginUser, getProfile , updateProfile , bookAppointment  , listAppointment , cancelAppointment};
