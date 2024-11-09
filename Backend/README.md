@@ -78,7 +78,7 @@ Welcome to the **Medical Appointment Management System**! This project is a back
    ```
 2. Navigate to the project directory:
    ```bash
-   cd tp
+   cd Backend
    ```
 3. Install dependencies:
    ```bash
