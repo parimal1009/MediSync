@@ -122,11 +122,11 @@ Below is a breakdown of each component and how they work together to create a ro
 
 ### **User Endpoints**:
 - **GET /user/…**: User-specific actions (e.g., viewing health recommendations, uploading prescriptions).
-  
-### **AI Health Assistant** (Add-on Feature):
-- **POST /ai/recommendation**: Send user symptoms or health concerns to the AI for personalized health recommendations.
-- **POST /ai/doctor-suggestions**: Based on the user’s health query, get AI recommendations for relevant doctors.
 
+### **AI Health Assistant**:
+- **POST /ai/chat**: Users can provide their symptoms or medical concerns in a chat-like interface, and the AI will analyze the information to offer personalized health recommendations, potential diagnoses, and treatment suggestions.
+- **POST /ai/ocr**: Users can upload an image or PDF of their prescription, and the AI will extract relevant details using Optical Character Recognition (OCR). This includes medication names, dosages, and doctor information to help track prescriptions and improve doctor-patient communication.!
+  
 ---
 
 ## 💊 **Prescription Upload & Management**
@@ -145,16 +145,17 @@ This feature allows users to upload and manage their prescriptions, enabling doc
 
 ---
 
-## 🧠 **AI Health Assistant (Add-on Feature)**
+## 🧠 AI Health Assistant 
 
 The AI Health Assistant provides personalized health advice based on the symptoms, health concerns, or queries submitted by the user.
 
 ### **How It Works**:
-1. **Health Recommendations**:
-   - **POST /ai/recommendation**: Users can provide their symptoms or medical details to receive tailored health recommendations from the AI.
-  
-2. **Doctor Recommendations**:
-   - **POST /ai/doctor-suggestions**: Based on the user's health query, the AI recommends doctors with relevant expertise and availability.
+
+1. **Health Recommendations & Symptom Checker**:
+   - **POST /ai/chat**: Users can provide their symptoms or medical concerns in a chat-like interface, and the AI will analyze the information and offer personalized health recommendations, potential diagnoses, and treatment suggestions. This endpoint enables users to interact with the AI and receive tailored advice.
+
+2. **Prescription OCR & Details Extraction**:
+   - **POST /ai/ocr**: Users can upload an image of their prescription, and the AI will process the document using Optical Character Recognition (OCR) to extract relevant details such as medication names, dosages, and doctor information. This helps users track their medications and makes it easier for doctors to access prescription data.
 
 ---
 
@@ -176,16 +177,3 @@ This project is pre-configured for deployment on **Vercel**. To deploy, simply l
 
 ---
 
-## 📬 **Connect**
-
-For questions, feedback, or collaboration inquiries, feel free to contact us at:
-
-📧 **Email**: sachinmhetre678@gmail.com
-
----
-
-## 📄 **License**
-
-This project is licensed under the **MIT License**.
-
----
