@@ -41,7 +41,6 @@ const Navbar = () => {
     { path: '/doctors', label: 'Find Doctors' },
     { path: '/about', label: 'About Us' },
     { path: '/contact', label: 'Contact' },
-    { path: '/waiting-list', label: 'Waiting List' }, 
   ];
 
   const notifications = [
